@@ -6,6 +6,7 @@ import xgboost as xgb
 import pickle
 import os
 
+from datetime import datetime
 from pubsub import publish_new_score_topic
 
 from flask import Flask, request, jsonify
@@ -50,8 +51,9 @@ def get_score():
     elif score <= 0.6: 
         status = 'MESA DE AVALIACAO'
 
+    request_date = datetime.today().strftime(format="%Y-%m-%d")
     publish_new_score_topic('{"cpf":%s, "request_date":"%s", "score":%.4f, "status":"%s"}'\
-        %(dados['cpf'], '', score, status))
+        %(dados['cpf'], request_date, score, status))
 
     return jsonify(cpf=dados['cpf'], score=score, status=status)
 
