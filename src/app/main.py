@@ -51,7 +51,7 @@ def get_score():
     elif score <= 0.6: 
         status = 'MESA DE AVALIACAO'
 
-    request_date = datetime.today().strftime(format="%Y-%m-%d")
+    request_date = datetime.today().strftime(format="%Y-%m-%d %H:%M:%S")
     publish_new_score_topic('{"cpf":%s, "request_date":"%s", "score":%.4f, "status":"%s"}'\
         %(dados['cpf'], request_date, score, status))
 
