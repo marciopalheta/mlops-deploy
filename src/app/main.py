@@ -52,7 +52,7 @@ def get_score():
         status = 'MESA DE AVALIACAO'
 
     request_date = datetime.today().strftime(format="%Y-%m-%d %H:%M:%S")
-    publish_new_score_topic('{"cpf":%s, "request_date":"%s", "score":%.4f, "status":"%s"}'\
+    publish_new_score_topic('{"cpf":%s, "request_datetime":"%s", "score":%.4f, "status":"%s"}'\
         %(dados['cpf'], request_date, score, status))
 
     return jsonify(cpf=dados['cpf'], score=score, status=status)
