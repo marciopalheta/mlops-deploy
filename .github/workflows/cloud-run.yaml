@@ -59,6 +59,7 @@ jobs:
         gcloud run deploy ${{ env.SERVICE }} \
           --region ${{ env.REGION }} \
           --image gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }} \
+          --no-allow-unauthenticated
           --platform "managed" \
           --quiet \
           --port 5000

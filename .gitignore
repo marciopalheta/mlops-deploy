@@ -1,5 +1,6 @@
 # Dados sensíveis
 env_vars.yaml
+mlops-uea-2-service-account.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
